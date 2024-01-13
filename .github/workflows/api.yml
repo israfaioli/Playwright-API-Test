@@ -5,6 +5,10 @@ on:
     branches:
       - main     
 
+  schedule:
+      - cron: '0 7 * * 6'  #run every Saturday at 7AM
+  
+
 jobs:
   build:
     runs-on: ubuntu-latest
