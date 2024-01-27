@@ -1,9 +1,6 @@
 stages:
   - test
 
-variables:
-  USER_PASSWORD: $CI_JOB_TOKEN  # You may need to set up a CI/CD variable in GitLab for this secret
-
 playwright_test:
   stage: test
   image: mcr.microsoft.com/playwright:latest
