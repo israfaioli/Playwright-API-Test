@@ -1,0 +1,22 @@
+stages:
+  - test
+
+variables:
+  USER_PASSWORD: $CI_JOB_TOKEN  # You may need to set up a CI/CD variable in GitLab for this secret
+
+playwright_test:
+  stage: test
+  image: mcr.microsoft.com/playwright:latest
+  script:
+    - apt-get update -qy
+    - apt-get install -y --no-install-recommends libnss3 libatk-bridge2.0-0 libgtk-3-0
+    - npm ci
+
+    - npm run test-headless  
+
+  only:
+    - main  
+
+  artifacts:
+    paths:
+    - playwright-report/
