@@ -8,12 +8,9 @@ playwright_test:
   stage: test
   image: mcr.microsoft.com/playwright:latest
   script:
-    - echo "O ID do projeto é: $CI_PROJECT_ID"
-    - echo "ID do Job: $CI_JOB_ID"
     - apt-get update -qy
     - apt-get install -y --no-install-recommends libnss3 libatk-bridge2.0-0 libgtk-3-0
     - npm ci
-
     - npm run test-headless  
 
   only:
@@ -21,4 +18,4 @@ playwright_test:
 
   artifacts:
     paths:
-    - playwright-report/
+      - playwright-report/
