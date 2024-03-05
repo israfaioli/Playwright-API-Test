@@ -30,6 +30,11 @@ jobs:
         run: |
           npm ci
 
+      - name: "Exibir informações do job"
+        run: |
+          echo "O ID do projeto é: $GITHUB_REPOSITORY"
+          echo "ID do Job: $GITHUB_RUN_ID"    
+
       - name: Executar testes Playwright
         run: |
           npm run test-headless
